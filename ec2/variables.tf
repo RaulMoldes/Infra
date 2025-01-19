@@ -18,27 +18,3 @@ variable "aws_region" {
   default     = "eu-west-1"
   sensitive   = false
 }
-
-variable "terraform_backend_s3_bucket" {
-
-  description = "The S3 bucket to store Terraform state"
-  type        = string
-  default     = "tf_states_bucket"
-  sensitive   = false
-}
-
-variable "terraform_backend_dynamodb_table" {
-
-  description = "The DynamoDB table to store Terraform state locks"
-  type        = string
-  default     = "tf_states_ddb_table"
-  sensitive   = false
-}
-
-variable "terraform_backend_s3_bucket_prefix" {
-
-  description = "The prefix to use for the S3 bucket"
-  type        = string
-  default     = "tf-states-raulmoldes"
-  sensitive   = false
-}
