@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-system-deployment
+  namespace: kube-system
+spec:
+  replicas: 1  # Specify the number of replicas
+  selector:
+    matchLabels:
+      app: kube-system
+  template:
+    metadata:
+      labels:
+        app: kube-system
+    spec:
+      serviceAccountName: admin-group
+      containers:
+      - name: kube-system
+        image: nginx
+        ports:
+        - name: http
+          containerPort: 8080  # Fixed indentation
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "100m"
+
+
+---

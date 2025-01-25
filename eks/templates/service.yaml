@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-system-service
+  namespace: kube-system
+spec:
+  selector:
+    app: kube-system  # Matches the label of the pods you want this service to target
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80          # Port exposed by the service
+    targetPort: 8080  # Port exposed by the container in the deployment
+  type: ClusterIP      # Type of service (can be NodePort, LoadBalancer, etc.)
